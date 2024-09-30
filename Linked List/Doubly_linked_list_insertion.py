@@ -50,13 +50,11 @@ def forward_traversal(head):
     curr=head
     while curr is not None:
         print(curr.data)
-        tail=curr
         curr=curr.next
     print()
-    return tail
 
-def backward_traversal(tail):
-    curr=tail
+def backward_traversal(head):
+    curr=head.prev
     while curr is not None:
         print(curr.data)
         curr=curr.prev
@@ -78,10 +76,10 @@ def main():
     head = insert_at_index(head,pos,val)
     
     print('Forward Traversal')
-    tail = forward_traversal(head)
+    forward_traversal(head)
 
     print('Backward Traversal')
-    backward_traversal(tail)
+    backward_traversal(head)
 
 if __name__ == "__main__":
     main()
