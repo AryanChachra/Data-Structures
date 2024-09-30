@@ -72,7 +72,6 @@ def forward_traversal(head):
         if curr == head:
             break
     print()
-    return tail
 
 def backward_traversal(head):
     if head is None:
