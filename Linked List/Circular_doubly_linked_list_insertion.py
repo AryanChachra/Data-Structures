@@ -68,19 +68,20 @@ def forward_traversal(head):
     curr=head
     while True:
         print(curr.data)
-        tail=curr
         curr=curr.next
         if curr == head:
             break
     print()
     return tail
 
-def backward_traversal(tail):
-    curr=tail
+def backward_traversal(head):
+    if head is None:
+        return None
+    curr=head.prev
     while True:
         print(curr.data)
         curr=curr.prev
-        if curr == tail:
+        if curr == head.prev:
             break
     print()
     
@@ -92,19 +93,19 @@ def main():
         val = input()
         head = insert_at_begin(head,val)
     
-    # for j in range(n):
-    #     val=int(input())
-    #     head = insert_at_end(head,val)
+    for j in range(n):
+        val=int(input())
+        head = insert_at_end(head,val)
     
-    tail = forward_traversal(head)
-    backward_traversal(tail)
+    forward_traversal(head)
+    backward_traversal(head)
     
     pos=int(input())
     val=input()
     head = insert_at_index(head,pos,val)
     
-    tail = forward_traversal(head)
-    backward_traversal(tail)
+    forward_traversal(head)
+    backward_traversal(head)
 
 if __name__=="__main__":
     main()
