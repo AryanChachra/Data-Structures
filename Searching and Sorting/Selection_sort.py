@@ -15,7 +15,7 @@ def main():
     arr=[]
     n=int(input('Enter the size of the array: '))
     for i in range(n):
-        val=input()
+        val=int(input())
         arr.append(val)
     print(arr)
     selection_sort(arr)
