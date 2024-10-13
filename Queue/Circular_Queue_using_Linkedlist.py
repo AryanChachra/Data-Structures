@@ -57,7 +57,7 @@ class circular_queue():
         if ((self.rear + 1) % self.capacity == self.front):
             print("Queue is Full")
 
-# main function so that elif part works in display function
+# main function for elif part to work in display function
 # def main():
 #     n=int(input('Enter the size of the Queue: '))
 #     q=circular_queue(n)
@@ -73,7 +73,7 @@ class circular_queue():
 #     q.queue_rear()
 #     q.display()
 
-# main function so that else part works in display function (rear wraps around to the beginning)
+# main function for else part to work in display function (rear wraps around to the beginning)
 def main():
     n = int(input('Enter the size of the Queue: '))
     q = circular_queue(n)
