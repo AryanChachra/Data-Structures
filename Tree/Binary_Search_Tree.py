@@ -46,54 +46,53 @@ def insertnode(root, data):
         parent.right = temp
     return root
 
-def deletenode(root,data):
+def deletenode(root, data):
     curr = root
     prev = None
 
-    while (curr != None and curr.data != data):
+    while curr is not None and curr.data != data:
         prev = curr
         if curr.data < data:
             curr = curr.right
         else:
             curr = curr.left
-    
-    if curr == None:
+
+    if curr is None:
         return root
-    
-    if curr.left == None or curr.right == None:
-        newCurr = None
-        if curr.left == prev.left:
-            newCurr = curr.right
+
+    if curr.left is None and curr.right is None:
+        if prev is None:
+            return None
+        if prev.left == curr:
+            prev.left = None
         else:
-            newCurr = curr.left
-    
-        if prev == None:
-            return newCurr
-    
-        if curr == prev.left:
-            prev.left = newCurr
+            prev.right = None
+
+    elif curr.left is None or curr.right is None:
+        new_curr = curr.left if curr.left else curr.right
+        if prev is None:
+            return new_curr
+        if prev.left == curr:
+            prev.left = new_curr
         else:
-            prev.right == newCurr
-    
-        curr = None
-    
+            prev.right = new_curr
+
     else:
         p = None
-        temp = None
-
         temp = curr.right
-        while(temp.left != None):
+        while temp.left is not None:
             p = temp
             temp = temp.left
-        
-        if p != None:
+
+        curr.data = temp.data
+
+        if p is not None:
             p.left = temp.right
         else:
             curr.right = temp.right
-        curr.data = temp.data
+    
     return root
-
-
+    
 def searchnode(root, data):
     curr = root
     
@@ -123,7 +122,7 @@ def main():
 
     m = int(input())
     for j in range(m):
-        val = int(input())
+        val = input()
         root = deletenode(root, val)
     
     print("InOrder Traversal:", end=" ")
