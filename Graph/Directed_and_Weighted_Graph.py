@@ -13,9 +13,9 @@ class Graph:
             self.vertex_data[vertex] = data
     
     def print_graph(self):
-        print('Adjasency Matrix')
+        print('Adjacency Matrix: ')
         for i in self.adj_matrix:
-            print(' '.join(map(lambda x: str(x) if x is not None else '0', i))
+            print(' '.join(map(lambda x: str(x) if x is not None else '0', i)))
         print('\nVertex Data: ')
         for vertex, data in enumerate(self.vertex_data):
             print(f"Vertex {vertex} : {data}")
@@ -29,4 +29,12 @@ def main():
     
     m=int(input())
     for j in range(m):
-        
+        edgefrom = int(input())
+        edgeto = int(input())
+        weight = int(input())
+        g.add_edge(edgefrom, edgeto, weight)
+    
+    g.print_graph()
+
+if __name__ == "__main__":
+    main()
